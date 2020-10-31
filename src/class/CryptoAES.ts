@@ -1,6 +1,6 @@
 import { AES, enc } from "crypto-js";
 import { CryptoAssertError } from "../error";
-import { stringComparison } from "@lindorm-io/common";
+import { stringComparison } from "@lindorm-io/core";
 
 export interface ICryptoAESOptions {
   secret: string;

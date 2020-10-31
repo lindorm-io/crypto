@@ -1,5 +1,5 @@
 import { CryptoAssertError } from "../error";
-import { TObject } from "@lindorm-io/global";
+import { TObject } from "@lindorm-io/core";
 import { argon2id, hash, verify } from "argon2";
 
 export interface ICryptoArgonOptions {

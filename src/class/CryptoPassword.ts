@@ -2,7 +2,7 @@ import { CryptoAES } from "./CryptoAES";
 import { CryptoArgon } from "./CryptoArgon";
 import { CryptoAssertError } from "../error";
 import { CryptoSHA } from "./CryptoSHA";
-import { baseHash, baseParse } from "@lindorm-io/common";
+import { baseHash, baseParse } from "@lindorm-io/core";
 
 export interface ICryptoPasswordOptions {
   aesSecret: string;

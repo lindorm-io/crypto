@@ -1,15 +1,10 @@
 # @lindorm-io/crypto
-This package contains simplified crypto handlers for lindorm.io packages
+Simplified crypto handlers for lindorm.io packages
 
 ## Installation
 ```shell script
 npm install --save @lindorm-io/crypto
 ```
-
-### Peer Dependencies
-This package has the following peer dependencies: 
-* [@lindorm-io/common](https://www.npmjs.com/package/@lindorm-io/common)
-* [@lindorm-io/global](https://www.npmjs.com/package/@lindorm-io/global)
 
 ## Usage
 
