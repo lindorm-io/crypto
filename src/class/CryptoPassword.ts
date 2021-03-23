@@ -2,19 +2,8 @@ import { CryptoAES } from "./CryptoAES";
 import { CryptoArgon } from "./CryptoArgon";
 import { CryptoAssertError } from "../error";
 import { CryptoSHA } from "./CryptoSHA";
+import { ICryptoPasswordOptions } from "../typing";
 import { baseHash, baseParse } from "@lindorm-io/core";
-
-export interface ICryptoPasswordOptions {
-  aesSecret: string;
-  shaSecret: string;
-  hashLength?: number;
-  memoryCost?: number;
-  parallelism?: number;
-  salt?: string;
-  saltLength?: number;
-  secret?: string;
-  timeCost?: number;
-}
 
 export class CryptoPassword {
   private aes: CryptoAES;

@@ -1,10 +1,7 @@
 import { AES, enc } from "crypto-js";
 import { CryptoAssertError } from "../error";
+import { ICryptoAESOptions } from "../typing";
 import { stringComparison } from "@lindorm-io/core";
-
-export interface ICryptoAESOptions {
-  secret: string;
-}
 
 export class CryptoAES {
   private secret: string;

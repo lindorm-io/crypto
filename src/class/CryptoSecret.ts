@@ -1,12 +1,8 @@
 import { CryptoAES } from "./CryptoAES";
 import { CryptoAssertError } from "../error";
 import { CryptoSHA } from "./CryptoSHA";
+import { ICryptoSecretOptions } from "../typing";
 import { baseHash, baseParse, stringComparison } from "@lindorm-io/core";
-
-export interface ICryptoSecretOptions {
-  aesSecret: string;
-  shaSecret: string;
-}
 
 export class CryptoSecret {
   private aes: CryptoAES;

@@ -1,16 +1,6 @@
 import { CryptoAssertError } from "../error";
-import { TObject } from "@lindorm-io/core";
+import { ICryptoArgonOptions } from "../typing";
 import { argon2id, hash, verify } from "argon2";
-
-export interface ICryptoArgonOptions {
-  hashLength?: number;
-  memoryCost?: number;
-  parallelism?: number;
-  salt?: string;
-  saltLength?: number;
-  secret?: string;
-  timeCost?: number;
-}
 
 export class CryptoArgon {
   private hashLength: number;
@@ -33,25 +23,24 @@ export class CryptoArgon {
   }
 
   public async encrypt(input: string): Promise<string> {
-    const options: TObject<any> = {
+    const options: Record<string, unknown> = {
       type: argon2id,
       hashLength: this.hashLength,
       memoryCost: this.memoryCost,
       parallelism: this.parallelism,
       saltLength: this.saltLength,
       timeCost: this.timeCost,
+      ...(this.salt ? { salt: this.salt } : {}),
+      ...(this.secret ? { secret: this.secret } : {}),
     };
-
-    if (this.salt) options.salt = this.salt;
-    if (this.secret) options.secret = this.secret;
 
     return hash(input, options);
   }
 
   public async verify(input: string, signature: string): Promise<boolean> {
-    const options: TObject<any> = {};
-
-    if (this.secret) options.secret = this.secret;
+    const options: Record<string, unknown> = {
+      ...(this.secret ? { secret: this.secret } : {}),
+    };
 
     return verify(signature, input, options);
   }
