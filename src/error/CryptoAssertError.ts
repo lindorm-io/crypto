@@ -1,7 +1,7 @@
 import { ExtendableError } from "@lindorm-io/errors";
 
 export class CryptoAssertError extends ExtendableError {
-  constructor() {
+  public constructor() {
     super("Invalid value provided");
   }
 }

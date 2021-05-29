@@ -16,12 +16,13 @@ export interface ICryptoSHAOptions {
   secret: string;
 }
 
-export interface ICryptoPasswordOptions extends ICryptoArgonOptions {
-  aesSecret: string;
-  shaSecret: string;
+export interface ICryptoLayeredOptions {
+  aes: ICryptoAESOptions;
+  argon?: ICryptoArgonOptions;
+  sha: ICryptoSHAOptions;
 }
 
 export interface ICryptoSecretOptions {
-  aesSecret: string;
-  shaSecret: string;
+  aes: ICryptoAESOptions;
+  sha: ICryptoSHAOptions;
 }

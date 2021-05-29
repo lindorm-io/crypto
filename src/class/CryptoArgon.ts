@@ -6,20 +6,20 @@ export class CryptoArgon {
   private hashLength: number;
   private memoryCost: number;
   private parallelism: number;
-  private salt: Buffer;
+  private salt: Buffer | undefined;
   private saltLength: number;
-  private secret: Buffer;
+  private secret: Buffer | undefined;
   private timeCost: number;
 
-  constructor(options?: ICryptoArgonOptions) {
+  public constructor(options?: ICryptoArgonOptions) {
     this.hashLength = options?.hashLength || 128;
     this.memoryCost = options?.memoryCost || 128;
     this.parallelism = options?.parallelism || 2;
     this.saltLength = options?.saltLength || 128;
     this.timeCost = options?.timeCost || 32;
 
-    this.salt = options?.salt && Buffer.from(options.salt);
-    this.secret = options?.secret && Buffer.from(options.secret);
+    this.salt = options?.salt ? Buffer.from(options.salt) : undefined;
+    this.secret = options?.secret ? Buffer.from(options.secret) : undefined;
   }
 
   public async encrypt(input: string): Promise<string> {

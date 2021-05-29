@@ -1,5 +1,5 @@
 export * from "./CryptoAES";
 export * from "./CryptoArgon";
-export * from "./CryptoPassword";
+export * from "./CryptoLayered";
 export * from "./CryptoSecret";
 export * from "./CryptoSHA";

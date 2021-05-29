@@ -6,7 +6,7 @@ import { stringComparison } from "@lindorm-io/core";
 export class CryptoAES {
   private secret: string;
 
-  constructor(options: ICryptoAESOptions) {
+  public constructor(options: ICryptoAESOptions) {
     this.secret = options.secret;
   }
 

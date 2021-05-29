@@ -1,14 +1,14 @@
-import { CryptoPassword } from "./CryptoPassword";
+import { CryptoLayered } from "./CryptoLayered";
 import { CryptoAssertError } from "../error";
 
-describe("CryptoPassword.ts", () => {
-  let instance: CryptoPassword;
+describe("CryptoLayered.ts", () => {
+  let instance: CryptoLayered;
   let signature: string;
 
   beforeEach(async () => {
-    instance = new CryptoPassword({
-      aesSecret: "mock-secret",
-      shaSecret: "mock-secret",
+    instance = new CryptoLayered({
+      aes: { secret: "mock-secret" },
+      sha: { secret: "mock-secret" },
     });
     signature = await instance.encrypt("string");
   });

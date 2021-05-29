@@ -2,30 +2,18 @@ import { CryptoAES } from "./CryptoAES";
 import { CryptoArgon } from "./CryptoArgon";
 import { CryptoAssertError } from "../error";
 import { CryptoSHA } from "./CryptoSHA";
-import { ICryptoPasswordOptions } from "../typing";
+import { ICryptoLayeredOptions } from "../typing";
 import { baseHash, baseParse } from "@lindorm-io/core";
 
-export class CryptoPassword {
+export class CryptoLayered {
   private aes: CryptoAES;
-  private sha: CryptoSHA;
   private argon: CryptoArgon;
+  private sha: CryptoSHA;
 
-  constructor(options: ICryptoPasswordOptions) {
-    this.aes = new CryptoAES({
-      secret: options.aesSecret,
-    });
-    this.sha = new CryptoSHA({
-      secret: options.shaSecret,
-    });
-    this.argon = new CryptoArgon({
-      hashLength: options.hashLength,
-      memoryCost: options.memoryCost,
-      parallelism: options.parallelism,
-      salt: options.salt,
-      saltLength: options.saltLength,
-      secret: options.secret,
-      timeCost: options.timeCost,
-    });
+  public constructor(options: ICryptoLayeredOptions) {
+    this.aes = new CryptoAES(options.aes);
+    this.argon = new CryptoArgon(options.argon);
+    this.sha = new CryptoSHA(options.sha);
   }
 
   public async encrypt(input: string): Promise<string> {

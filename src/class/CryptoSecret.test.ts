@@ -7,8 +7,8 @@ describe("CryptoSecret.ts", () => {
 
   beforeEach(() => {
     instance = new CryptoSecret({
-      aesSecret: "mock-secret",
-      shaSecret: "mock-secret",
+      aes: { secret: "mock-secret" },
+      sha: { secret: "mock-secret" },
     });
     signature = instance.encrypt("string");
   });

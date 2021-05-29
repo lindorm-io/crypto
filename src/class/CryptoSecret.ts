@@ -8,14 +8,9 @@ export class CryptoSecret {
   private aes: CryptoAES;
   private sha: CryptoSHA;
 
-  constructor(options: ICryptoSecretOptions) {
-    this.aes = new CryptoAES({
-      secret: options.aesSecret,
-    });
-
-    this.sha = new CryptoSHA({
-      secret: options.shaSecret,
-    });
+  public constructor(options: ICryptoSecretOptions) {
+    this.aes = new CryptoAES(options.aes);
+    this.sha = new CryptoSHA(options.sha);
   }
 
   public encrypt(input: string): string {
