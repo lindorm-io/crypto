@@ -22,7 +22,7 @@ describe("CryptoLayered.ts", () => {
   });
 
   test("should assert", async () => {
-    await expect(instance.assert("string", signature)).resolves.toBe(undefined);
+    await expect(instance.assert("string", signature)).resolves.toBeUndefined();
   });
 
   test("should throw error", async () => {

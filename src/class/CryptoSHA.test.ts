@@ -21,7 +21,7 @@ describe("CryptoSHA.ts", () => {
   });
 
   test("should assert", () => {
-    expect(instance.assert("string", signature)).toBe(undefined);
+    expect(instance.assert("string", signature)).toBeUndefined();
   });
 
   test("should throw error", () => {
