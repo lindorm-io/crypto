@@ -2,7 +2,7 @@ import { CryptoAES } from "./CryptoAES";
 import { CryptoArgon } from "./CryptoArgon";
 import { CryptoAssertError } from "../error";
 import { CryptoSHA } from "./CryptoSHA";
-import { ICryptoLayeredOptions } from "../typing";
+import { CryptoLayeredOptions } from "../typing";
 import { baseHash, baseParse } from "@lindorm-io/core";
 
 export class CryptoLayered {
@@ -10,7 +10,7 @@ export class CryptoLayered {
   private argon: CryptoArgon;
   private sha: CryptoSHA;
 
-  public constructor(options: ICryptoLayeredOptions) {
+  public constructor(options: CryptoLayeredOptions) {
     this.aes = new CryptoAES(options.aes);
     this.argon = new CryptoArgon(options.argon);
     this.sha = new CryptoSHA(options.sha);

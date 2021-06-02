@@ -1,14 +1,14 @@
 import { CryptoAES } from "./CryptoAES";
 import { CryptoAssertError } from "../error";
 import { CryptoSHA } from "./CryptoSHA";
-import { ICryptoSecretOptions } from "../typing";
+import { CryptoSecretOptions } from "../typing";
 import { baseHash, baseParse, stringComparison } from "@lindorm-io/core";
 
 export class CryptoSecret {
   private aes: CryptoAES;
   private sha: CryptoSHA;
 
-  public constructor(options: ICryptoSecretOptions) {
+  public constructor(options: CryptoSecretOptions) {
     this.aes = new CryptoAES(options.aes);
     this.sha = new CryptoSHA(options.sha);
   }

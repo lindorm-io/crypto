@@ -1,8 +1,8 @@
-export interface ICryptoAESOptions {
+export interface CryptoAESOptions {
   secret: string;
 }
 
-export interface ICryptoArgonOptions {
+export interface CryptoArgonOptions {
   hashLength?: number;
   memoryCost?: number;
   parallelism?: number;
@@ -12,17 +12,17 @@ export interface ICryptoArgonOptions {
   timeCost?: number;
 }
 
-export interface ICryptoSHAOptions {
+export interface CryptoSHAOptions {
   secret: string;
 }
 
-export interface ICryptoLayeredOptions {
-  aes: ICryptoAESOptions;
-  argon?: ICryptoArgonOptions;
-  sha: ICryptoSHAOptions;
+export interface CryptoLayeredOptions {
+  aes: CryptoAESOptions;
+  argon?: CryptoArgonOptions;
+  sha: CryptoSHAOptions;
 }
 
-export interface ICryptoSecretOptions {
-  aes: ICryptoAESOptions;
-  sha: ICryptoSHAOptions;
+export interface CryptoSecretOptions {
+  aes: CryptoAESOptions;
+  sha: CryptoSHAOptions;
 }

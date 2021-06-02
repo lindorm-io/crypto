@@ -1,5 +1,5 @@
 import { CryptoAssertError } from "../error";
-import { ICryptoArgonOptions } from "../typing";
+import { CryptoArgonOptions } from "../typing";
 import { argon2id, hash, verify } from "argon2";
 
 export class CryptoArgon {
@@ -11,7 +11,7 @@ export class CryptoArgon {
   private secret: Buffer | undefined;
   private timeCost: number;
 
-  public constructor(options?: ICryptoArgonOptions) {
+  public constructor(options?: CryptoArgonOptions) {
     this.hashLength = options?.hashLength || 128;
     this.memoryCost = options?.memoryCost || 128;
     this.parallelism = options?.parallelism || 2;

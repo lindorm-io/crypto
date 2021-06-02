@@ -46,7 +46,6 @@
     "crypto-js": "^4.0.0",
     "lodash": "^4.17.21"
   },
-  "peerDependencies": {},
   "devDependencies": {
     "@types/crypto-js": "^4.0.1",
     "@types/jest": "^26.0.23",

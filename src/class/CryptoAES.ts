@@ -1,12 +1,12 @@
 import { AES, enc } from "crypto-js";
 import { CryptoAssertError } from "../error";
-import { ICryptoAESOptions } from "../typing";
+import { CryptoAESOptions } from "../typing";
 import { stringComparison } from "@lindorm-io/core";
 
 export class CryptoAES {
   private secret: string;
 
-  public constructor(options: ICryptoAESOptions) {
+  public constructor(options: CryptoAESOptions) {
     this.secret = options.secret;
   }
 

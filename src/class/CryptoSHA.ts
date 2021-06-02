@@ -1,12 +1,12 @@
 import { CryptoAssertError } from "../error";
 import { HmacSHA512 } from "crypto-js";
-import { ICryptoSHAOptions } from "../typing";
+import { CryptoSHAOptions } from "../typing";
 import { stringComparison } from "@lindorm-io/core";
 
 export class CryptoSHA {
   private secret: string;
 
-  public constructor(options: ICryptoSHAOptions) {
+  public constructor(options: CryptoSHAOptions) {
     this.secret = options.secret;
   }
 
