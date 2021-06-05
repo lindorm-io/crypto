@@ -3,34 +3,30 @@ import { CryptoArgonOptions } from "../typing";
 import { argon2id, hash, verify } from "argon2";
 
 export class CryptoArgon {
-  private hashLength: number;
-  private memoryCost: number;
-  private parallelism: number;
-  private salt: Buffer | undefined;
-  private saltLength: number;
-  private secret: Buffer | undefined;
-  private timeCost: number;
+  private readonly hashLength: number;
+  private readonly memoryCost: number;
+  private readonly parallelism: number;
+  private readonly saltLength: number;
+  private readonly secret: Buffer | undefined;
+  private readonly timeCost: number;
 
   public constructor(options?: CryptoArgonOptions) {
     this.hashLength = options?.hashLength || 128;
-    this.memoryCost = options?.memoryCost || 128;
+    this.memoryCost = options?.memoryCost ? options.memoryCost * 2048 : 2048;
     this.parallelism = options?.parallelism || 2;
     this.saltLength = options?.saltLength || 128;
-    this.timeCost = options?.timeCost || 32;
-
-    this.salt = options?.salt ? Buffer.from(options.salt) : undefined;
     this.secret = options?.secret ? Buffer.from(options.secret) : undefined;
+    this.timeCost = options?.timeCost || 32;
   }
 
   public async encrypt(input: string): Promise<string> {
     const options: Record<string, unknown> = {
-      type: argon2id,
       hashLength: this.hashLength,
       memoryCost: this.memoryCost,
       parallelism: this.parallelism,
       saltLength: this.saltLength,
       timeCost: this.timeCost,
-      ...(this.salt ? { salt: this.salt } : {}),
+      type: argon2id,
       ...(this.secret ? { secret: this.secret } : {}),
     };
 

@@ -3,11 +3,10 @@ export interface CryptoAESOptions {
 }
 
 export interface CryptoArgonOptions {
-  hashLength?: number;
-  memoryCost?: number;
+  hashLength?: 64 | 128 | 256 | 512;
+  memoryCost?: 1 | 2 | 4 | 8;
   parallelism?: number;
-  salt?: string;
-  saltLength?: number;
+  saltLength?: 64 | 128 | 256 | 512;
   secret?: string;
   timeCost?: number;
 }

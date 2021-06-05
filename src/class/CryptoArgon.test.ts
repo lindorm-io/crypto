@@ -12,7 +12,7 @@ describe("CryptoArgon.ts", () => {
     });
 
     test("should generate signature", async () => {
-      expect(signature.length).toBe(373);
+      expect(signature.length).toBe(374);
     });
 
     test("should verify", async () => {
@@ -31,13 +31,38 @@ describe("CryptoArgon.ts", () => {
   describe("with hashLength", () => {
     beforeEach(async () => {
       instance = new CryptoArgon({
-        hashLength: 32,
+        hashLength: 256,
       });
       signature = await instance.encrypt("string");
     });
 
     test("should generate signature", async () => {
-      expect(signature.length).toBe(245);
+      expect(signature.length).toBe(545);
+    });
+
+    test("should verify", async () => {
+      await expect(instance.verify("string", signature)).resolves.toBe(true);
+    });
+
+    test("should reject", async () => {
+      await expect(instance.verify("wrong", signature)).resolves.toBe(false);
+    });
+
+    test("should throw error", async () => {
+      await expect(instance.assert("wrong", signature)).rejects.toStrictEqual(expect.any(CryptoAssertError));
+    });
+  });
+
+  describe("with memoryCost", () => {
+    beforeEach(async () => {
+      instance = new CryptoArgon({
+        memoryCost: 2,
+      });
+      signature = await instance.encrypt("string");
+    });
+
+    test("should generate signature", async () => {
+      expect(signature.length).toBe(374);
     });
 
     test("should verify", async () => {
@@ -62,32 +87,7 @@ describe("CryptoArgon.ts", () => {
     });
 
     test("should generate signature", async () => {
-      expect(signature.length).toBe(373);
-    });
-
-    test("should verify", async () => {
-      await expect(instance.verify("string", signature)).resolves.toBe(true);
-    });
-
-    test("should reject", async () => {
-      await expect(instance.verify("wrong", signature)).resolves.toBe(false);
-    });
-
-    test("should throw error", async () => {
-      await expect(instance.assert("wrong", signature)).rejects.toStrictEqual(expect.any(CryptoAssertError));
-    });
-  });
-
-  describe("with salt", () => {
-    beforeEach(async () => {
-      instance = new CryptoArgon({
-        salt: "45d7ac72e76f242b20b77b9bf9bf9d5915894e669a24e6c6",
-      });
-      signature = await instance.encrypt("string");
-    });
-
-    test("should generate signature", async () => {
-      expect(signature.length).toBe(266);
+      expect(signature.length).toBe(374);
     });
 
     test("should verify", async () => {
@@ -106,13 +106,13 @@ describe("CryptoArgon.ts", () => {
   describe("with saltLength", () => {
     beforeEach(async () => {
       instance = new CryptoArgon({
-        saltLength: 32,
+        saltLength: 64,
       });
       signature = await instance.encrypt("string");
     });
 
     test("should generate signature", async () => {
-      expect(signature.length).toBe(245);
+      expect(signature.length).toBe(289);
     });
 
     test("should verify", async () => {
@@ -137,7 +137,7 @@ describe("CryptoArgon.ts", () => {
     });
 
     test("should generate signature", async () => {
-      expect(signature.length).toBe(373);
+      expect(signature.length).toBe(374);
     });
 
     test("should verify", async () => {
@@ -170,7 +170,7 @@ describe("CryptoArgon.ts", () => {
     });
 
     test("should generate signature", async () => {
-      expect(signature.length).toBe(372);
+      expect(signature.length).toBe(373);
     });
 
     test("should verify", async () => {
