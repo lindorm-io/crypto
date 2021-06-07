@@ -1,4 +1,4 @@
-import { CryptoAssertError } from "../error";
+import { CryptoError } from "../error";
 import { SignKey, SignMethod } from "../enum";
 import { createSign, createVerify, privateDecrypt, privateEncrypt, publicDecrypt, publicEncrypt } from "crypto";
 import { startsWith } from "lodash";
@@ -69,7 +69,7 @@ export class CryptoKeyPair {
       return;
     }
 
-    throw new CryptoAssertError();
+    throw new CryptoError("Invalid KeyPair input");
   }
 
   public encrypt(method: SignMethod, input: string): string {

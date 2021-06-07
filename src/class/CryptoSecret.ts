@@ -1,5 +1,5 @@
 import { CryptoAES } from "./CryptoAES";
-import { CryptoAssertError } from "../error";
+import { CryptoError } from "../error";
 import { CryptoSHA } from "./CryptoSHA";
 import { CryptoSecretOptions } from "../typing";
 import { baseHash, baseParse, stringComparison } from "@lindorm-io/core";
@@ -33,6 +33,6 @@ export class CryptoSecret {
       return;
     }
 
-    throw new CryptoAssertError();
+    throw new CryptoError("Invalid Secret input");
   }
 }

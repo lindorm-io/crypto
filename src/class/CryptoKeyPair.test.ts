@@ -1,4 +1,4 @@
-import { CryptoAssertError } from "../error";
+import { CryptoError } from "../error";
 import { CryptoKeyPair } from "./CryptoKeyPair";
 import { SignMethod } from "../enum";
 
@@ -125,7 +125,7 @@ describe("CryptoKeyPair.ts", () => {
     }, 10000);
 
     test("should sign/throw error", () => {
-      expect(() => crypto.assert("wrong", signature)).toThrow(expect.any(CryptoAssertError));
+      expect(() => crypto.assert("wrong", signature)).toThrow(expect.any(CryptoError));
     }, 10000);
 
     test("should encrypt/decrypt with private sign method", () => {
@@ -164,7 +164,7 @@ describe("CryptoKeyPair.ts", () => {
     }, 10000);
 
     test("should sign/throw error", () => {
-      expect(() => crypto.assert("wrong", signature)).toThrow(expect.any(CryptoAssertError));
+      expect(() => crypto.assert("wrong", signature)).toThrow(expect.any(CryptoError));
     }, 10000);
   });
 });

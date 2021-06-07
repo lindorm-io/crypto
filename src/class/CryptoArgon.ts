@@ -1,4 +1,4 @@
-import { CryptoAssertError } from "../error";
+import { CryptoError } from "../error";
 import { CryptoArgonOptions } from "../typing";
 import { argon2id, hash, verify } from "argon2";
 
@@ -46,6 +46,6 @@ export class CryptoArgon {
       return;
     }
 
-    throw new CryptoAssertError();
+    throw new CryptoError("Invalid Argon input");
   }
 }

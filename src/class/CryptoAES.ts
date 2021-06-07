@@ -1,5 +1,5 @@
 import { AES, enc } from "crypto-js";
-import { CryptoAssertError } from "../error";
+import { CryptoError } from "../error";
 import { CryptoAESOptions } from "../typing";
 import { stringComparison } from "@lindorm-io/core";
 
@@ -27,6 +27,6 @@ export class CryptoAES {
       return;
     }
 
-    throw new CryptoAssertError();
+    throw new CryptoError("Invalid AES input");
   }
 }

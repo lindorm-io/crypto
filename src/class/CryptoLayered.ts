@@ -1,6 +1,6 @@
 import { CryptoAES } from "./CryptoAES";
 import { CryptoArgon } from "./CryptoArgon";
-import { CryptoAssertError } from "../error";
+import { CryptoError } from "../error";
 import { CryptoSHA } from "./CryptoSHA";
 import { CryptoLayeredOptions } from "../typing";
 import { baseHash, baseParse } from "@lindorm-io/core";
@@ -37,6 +37,6 @@ export class CryptoLayered {
       return;
     }
 
-    throw new CryptoAssertError();
+    throw new CryptoError("Invalid Layered input");
   }
 }

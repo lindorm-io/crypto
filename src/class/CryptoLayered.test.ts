@@ -1,5 +1,5 @@
 import { CryptoLayered } from "./CryptoLayered";
-import { CryptoAssertError } from "../error";
+import { CryptoError } from "../error";
 
 describe("CryptoLayered.ts", () => {
   let instance: CryptoLayered;
@@ -26,6 +26,6 @@ describe("CryptoLayered.ts", () => {
   });
 
   test("should throw error", async () => {
-    await expect(instance.assert("wrong", signature)).rejects.toStrictEqual(expect.any(CryptoAssertError));
+    await expect(instance.assert("wrong", signature)).rejects.toStrictEqual(expect.any(CryptoError));
   });
 });

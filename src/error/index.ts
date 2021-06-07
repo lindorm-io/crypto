@@ -1,1 +1,1 @@
-export * from "./CryptoAssertError";
+export * from "./CryptoError";

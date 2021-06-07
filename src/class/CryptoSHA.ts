@@ -1,4 +1,4 @@
-import { CryptoAssertError } from "../error";
+import { CryptoError } from "../error";
 import { HmacSHA512 } from "crypto-js";
 import { CryptoSHAOptions } from "../typing";
 import { stringComparison } from "@lindorm-io/core";
@@ -23,6 +23,6 @@ export class CryptoSHA {
       return;
     }
 
-    throw new CryptoAssertError();
+    throw new CryptoError("Invalid SHA input");
   }
 }
