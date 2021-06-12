@@ -93,7 +93,7 @@ const RSA_PUBLIC_KEY =
   "GFeCXe7QQ+mEe55+DNs1jV3Z1pZj7eG2hmAJBLSMF7ksee46okGD6D0CAwEAAQ==\n" +
   "-----END RSA PUBLIC KEY-----\n";
 
-describe("CryptoKeyPair.ts", () => {
+describe("CryptoKeyPair", () => {
   let crypto: CryptoKeyPair;
   let signature: string;
 
@@ -125,7 +125,7 @@ describe("CryptoKeyPair.ts", () => {
     }, 10000);
 
     test("should sign/throw error", () => {
-      expect(() => crypto.assert("wrong", signature)).toThrow(expect.any(CryptoError));
+      expect(() => crypto.assert("wrong", signature)).toThrow(CryptoError);
     }, 10000);
 
     test("should encrypt/decrypt with private sign method", () => {
@@ -164,7 +164,7 @@ describe("CryptoKeyPair.ts", () => {
     }, 10000);
 
     test("should sign/throw error", () => {
-      expect(() => crypto.assert("wrong", signature)).toThrow(expect.any(CryptoError));
+      expect(() => crypto.assert("wrong", signature)).toThrow(CryptoError);
     }, 10000);
   });
 });

@@ -1,7 +1,7 @@
 import { CryptoArgon } from "./CryptoArgon";
 import { CryptoError } from "../error";
 
-describe("CryptoArgon.ts", () => {
+describe("CryptoArgon", () => {
   let instance: CryptoArgon;
   let signature: string;
 
@@ -24,7 +24,7 @@ describe("CryptoArgon.ts", () => {
     });
 
     test("should throw error", async () => {
-      await expect(instance.assert("wrong", signature)).rejects.toStrictEqual(expect.any(CryptoError));
+      await expect(instance.assert("wrong", signature)).rejects.toThrow(CryptoError);
     });
   });
 
@@ -49,7 +49,7 @@ describe("CryptoArgon.ts", () => {
     });
 
     test("should throw error", async () => {
-      await expect(instance.assert("wrong", signature)).rejects.toStrictEqual(expect.any(CryptoError));
+      await expect(instance.assert("wrong", signature)).rejects.toThrow(CryptoError);
     });
   });
 
@@ -74,7 +74,7 @@ describe("CryptoArgon.ts", () => {
     });
 
     test("should throw error", async () => {
-      await expect(instance.assert("wrong", signature)).rejects.toStrictEqual(expect.any(CryptoError));
+      await expect(instance.assert("wrong", signature)).rejects.toThrow(CryptoError);
     });
   });
 
@@ -99,7 +99,7 @@ describe("CryptoArgon.ts", () => {
     });
 
     test("should throw error", async () => {
-      await expect(instance.assert("wrong", signature)).rejects.toStrictEqual(expect.any(CryptoError));
+      await expect(instance.assert("wrong", signature)).rejects.toThrow(CryptoError);
     });
   });
 
@@ -124,7 +124,7 @@ describe("CryptoArgon.ts", () => {
     });
 
     test("should throw error", async () => {
-      await expect(instance.assert("wrong", signature)).rejects.toStrictEqual(expect.any(CryptoError));
+      await expect(instance.assert("wrong", signature)).rejects.toThrow(CryptoError);
     });
   });
 
@@ -149,7 +149,7 @@ describe("CryptoArgon.ts", () => {
     });
 
     test("should throw error", async () => {
-      await expect(instance.assert("wrong", signature)).rejects.toStrictEqual(expect.any(CryptoError));
+      await expect(instance.assert("wrong", signature)).rejects.toThrow(CryptoError);
     });
 
     test("should reject on wrong secret", async () => {
@@ -182,7 +182,7 @@ describe("CryptoArgon.ts", () => {
     });
 
     test("should throw error", async () => {
-      await expect(instance.assert("wrong", signature)).rejects.toStrictEqual(expect.any(CryptoError));
+      await expect(instance.assert("wrong", signature)).rejects.toThrow(CryptoError);
     });
   });
 });

@@ -1,7 +1,7 @@
 import { CryptoAES } from "./CryptoAES";
 import { CryptoError } from "../error";
 
-describe("CryptoAES.ts", () => {
+describe("CryptoAES", () => {
   let instance: CryptoAES;
   let signature: string;
 
@@ -27,6 +27,6 @@ describe("CryptoAES.ts", () => {
   });
 
   test("should throw error", () => {
-    expect(() => instance.assert("wrong", signature)).toThrow(expect.any(CryptoError));
+    expect(() => instance.assert("wrong", signature)).toThrow(CryptoError);
   });
 });

@@ -1,7 +1,7 @@
 import { CryptoSecret } from "./CryptoSecret";
 import { CryptoError } from "../error";
 
-describe("CryptoSecret.ts", () => {
+describe("CryptoSecret", () => {
   let instance: CryptoSecret;
   let signature: string;
 
@@ -26,6 +26,6 @@ describe("CryptoSecret.ts", () => {
   });
 
   test("should throw error", async () => {
-    expect(() => instance.assert("wrong", signature)).toThrow(expect.any(CryptoError));
+    expect(() => instance.assert("wrong", signature)).toThrow(CryptoError);
   });
 });

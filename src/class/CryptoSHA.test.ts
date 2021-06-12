@@ -1,7 +1,7 @@
 import { CryptoSHA } from "./CryptoSHA";
 import { CryptoError } from "../error";
 
-describe("CryptoSHA.ts", () => {
+describe("CryptoSHA", () => {
   let instance: CryptoSHA;
   let signature: string;
 
@@ -25,6 +25,6 @@ describe("CryptoSHA.ts", () => {
   });
 
   test("should throw error", () => {
-    expect(() => instance.assert("wrong", signature)).toThrow(expect.any(CryptoError));
+    expect(() => instance.assert("wrong", signature)).toThrow(CryptoError);
   });
 });
